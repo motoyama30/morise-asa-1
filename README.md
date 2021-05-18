@@ -35,7 +35,6 @@
    コミットメッセージは「○ 章を追加」などわかりやすい文章にしてください．
    ```
    $ git commit -m 'your message'
-   $ git push <user_name>/chapter<XX>
    ```
 6. Remote repository の変更を pull する
    ```
@@ -44,7 +43,7 @@
 7. Remote repository に push する
    このとき， `<user_name>/chapter<XX>` は 2. で作成したブランチ名にしてください
    ```
-   $ git push <user_name>/chapter<XX>
+   $ git push origin <user_name>/chapter<XX>
    ```
 8. GitHub 上で pull request を作成する
    [このリポジトリの pull requests](https://github.com/onolab-tmu/morise-asa/pulls) から新しい pull request を作成してください
