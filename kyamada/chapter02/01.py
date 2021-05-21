@@ -1,8 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-fs = 44100 # サンプリング周波数
-t = np.arange(fs/2-1)/fs
+fs = 44100
+t = np.arange(fs/2)/fs
 x = np.sin(2*np.pi*t)
 
 S = np.sum(x)/fs
