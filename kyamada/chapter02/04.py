@@ -17,9 +17,9 @@ x2[int(fs/2-1000):int(fs/2+1000)] = 1
 #plt.show() # 0.5あたりにパワーが集中していることがわかった。→求めたい値、重心
 
 # 前提条件が必要(信号のエネルギーが1である)
-engry = np.sum(np.square(x1))/fs #->1であって欲しいから
+engry = np.sum(x1**2)/fs #->1であって欲しいから
 xx1 = x1/np.sqrt(engry)
-print(np.sum(np.square(xx1)/fs)) # 1になってればOK
+print(np.sum(xx1**2/fs)) # 1になってればOK
 
 # 1の式から求める（区分求積法）
 
