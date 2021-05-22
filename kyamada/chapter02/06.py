@@ -1,10 +1,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# 信号の作成
+# パラメータ設定
 fs = 100
-t = np.arange(fs).reshape((fs, 1))/fs
 f = 1
+snr = 6
+
+# 信号の作成
+t = np.arange(fs).reshape((fs, 1))/fs
 signal = np.sin(2*np.pi*f*t)
 # ホワイトノイズの作成
 np.random.seed(0) # シード値
@@ -17,8 +20,7 @@ noise_power = 10*np.log10(np.sum(noise**2))
 print(f'power of signal : {signal_power}')
 print(f'power of noise : {noise_power}')
 
-# SNRが6の時に混合をする
-snr=6
+# 混合をする
 noise=noise/np.sqrt(np.sum(noise**2)) # エネルギーの正規化
 noise=noise*np.sqrt(np.sum(signal**2))
 noise=noise*10**(-snr/20)
