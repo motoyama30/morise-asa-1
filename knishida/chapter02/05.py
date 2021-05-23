@@ -18,5 +18,5 @@ p_nis=10*np.log10(np.sum(noise**2))
 snr_result=10*np.log10(np.sum(signal**2)/np.sum(noise**2))
 
 print("power of signal:"+str(p_sig))
-print("power of noise :"+str(p_nis))
-print("SNratio:"+str(snr_result))
+print("power of noise:"+str(p_nis))
+print("SNR:"+str(snr_result))

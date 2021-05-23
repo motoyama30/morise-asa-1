@@ -25,7 +25,7 @@ for i in range(M+1,len(y)-M):
 snr_in=10*np.log10(np.sum(signal**2)/np.sum(noise**2))
 snr_out=10*np.log10(np.sum(signal**2)/np.sum((signal-y)**2))
 
-print("input  SNR:"+str(snr_in))
+print("input SNR:"+str(snr_in))
 print("output SNR:"+str(snr_out))
 
 ax1=plt.subplot(3,1,1)
@@ -40,11 +40,11 @@ ax1.set_ylim(-2,2)
 ax2.set_ylim(-2,2)
 ax3.set_ylim(-2,2)
 
-ax1.set_xlabel("Time[sample]")
+ax1.set_xlabel("Time [sample]")
 ax1.set_ylabel("Amplitude")
-ax2.set_xlabel("Time[sample]")
+ax2.set_xlabel("Time [sample]")
 ax2.set_ylabel("Amplitude")
-ax3.set_xlabel("Time[sample]")
+ax3.set_xlabel("Time [sample]")
 ax3.set_ylabel("Amplitude")
 
 ax1.set_title("signal")

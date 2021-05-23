@@ -20,13 +20,13 @@ ax4.plot(n,x3)
 
 ax4.set_ylim(-1,1)
 
-ax1.set_xlabel("Time[sample]")
+ax1.set_xlabel("Time [sample]")
 ax1.set_ylabel("Amplitude")
-ax2.set_xlabel("Time[sample]")
+ax2.set_xlabel("Time [sample]")
 ax2.set_ylabel("Amplitude")
-ax3.set_xlabel("Time[sample]")
+ax3.set_xlabel("Time [sample]")
 ax3.set_ylabel("Amplitude")
-ax4.set_xlabel("Time[sample]")
+ax4.set_xlabel("Time [sample]")
 ax4.set_ylabel("Amplitude")
 
 ax1.set_title("sin(ωn)")
