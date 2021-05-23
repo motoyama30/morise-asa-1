@@ -5,10 +5,10 @@ fs=44100
 t=np.arange(0,1,1/fs)
 
 x1=np.zeros(fs)
-x1[fs//2-500:fs//2+500]=1
+x1[fs//2-500:fs//2+500+1]=1
 
 x2=np.zeros(fs)
-x2[fs//4-1000:fs//4+1000]=1
+x2[fs//4-1000:fs//4+1000+1]=1
 
 energy=sum(x1**2)/fs
 xx1=x1/np.sqrt(energy)
