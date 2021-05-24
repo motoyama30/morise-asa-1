@@ -14,8 +14,6 @@ noise = noise*np.sqrt(np.sum(signal**2))
 noise = noise*10**(-snr/20)
 
 x = signal + noise
-y = np.zeros(len(x))
-M = 5
 
 for i in range(M+1,len(y)-M+1):
     y[i] = np.mean(x[i-M:i+M])

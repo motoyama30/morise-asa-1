@@ -24,19 +24,9 @@ plt.ylim(0,1)
 
 plt.show()
 
-energy = np.sum(x1**2)/fs
-xx1 = x1/np.sqrt(energy)
-t_c = np.sum(t*xx1**2)/fs
-
 print('{:.10g}'.format(t_c))
 
-sigma_t = np.sum((t-t_c)**2*xx1**2)/fs
-
 print('{:.10g}'.format(sigma_t))
-
-t_c1 = np.sum(t*xx1**2)/fs
-t_c2 = np.sum(t**2*xx1**2)/fs
-sigma_t = t_c2 - t_c1**2
 
 print('{:.10g}'.format(sigma_t))
 

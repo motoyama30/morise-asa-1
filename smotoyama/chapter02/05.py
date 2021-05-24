@@ -8,9 +8,6 @@ f = 1
 signal = np.sin(2*np.pi*f*t)
 noise = np.random.randn(fs,1)
 
-print('power(signal):' + str(10*np.log10(np.sum(signal**2))))
-print('power(noise)' + str(10*np.log10(np.sum(noise**2))))
-
 snr = 6
 
 noise = noise/np.sqrt(np.sum(noise**2))

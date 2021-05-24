@@ -11,7 +11,6 @@ noise = np.zeros(fs)
 num_pulses = 5
 for i in range(num_pulses):
     noise[np.random.randint((len(noise)))] = 2*np.round(np.random.rand())-1
-snr = 6
 
 noise = noise/np.sqrt(np.sum(noise**2))
 noise = noise*np.sqrt(np.sum(signal**2))
@@ -19,7 +18,6 @@ noise = noise*10**(-snr/20)
 
 x = signal + noise
 y = np.zeros(len(x))
-M = 5
 
 for i in range(M+1,len(y)-M+1):
     y[i] = np.median(x[i-M:i+M])
