@@ -9,12 +9,7 @@ f = 1
 signal = np.sin(2 * np.pi * f * t)
 noise = np.random.randn(fs)
 snr = 6
-noise = (
-    noise
-    * np.sqrt(np.sum(signal ** 2))
-    / np.sqrt(np.sum(noise ** 2))
-    * 10 ** (-snr / 20)
-)
+noise = np.sqrt(np.sum(signal ** 2) / np.sum(noise ** 2))
 
 # 信号とノイズの混合
 x = signal + noise
