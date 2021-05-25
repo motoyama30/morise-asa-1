@@ -79,7 +79,7 @@ def main():
 
 if __name__ == "__main__":
     # 章数と各章の問題数
-    n_chapters, n_codes = 7, [6, 19, 9, 15, 10, 11, 18]
+    n_chapters, n_codes = 7, [6, 7, 9, 15, 10, 11, 18]
 
     # progress bar に表示しないディレクトリ名
     IGNORE = [".git", ".github", ".automation"]
