@@ -14,4 +14,6 @@ noise = noise/np.sqrt(np.sum(noise**2))
 noise = noise*np.sqrt(np.sum(signal**2))
 noise = noise*10**(-snr/20)
 
+print('power(signal):' + str(10*np.log10(np.sum(signal**2))))
+print('power(noise)' + str(10*np.log10(np.sum(noise**2))))
 print(10*np.log10(sum(signal**2)/sum(noise**2)))

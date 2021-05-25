@@ -9,6 +9,10 @@ f = 1
 signal = np.sin(2*np.pi*f*t)
 noise = np.zeros(fs)
 num_pulses = 5
+
+snr = 6
+M = 5
+
 for i in range(num_pulses):
     noise[np.random.randint((len(noise)))] = 2*np.round(np.random.rand())-1
 
@@ -25,22 +29,29 @@ for i in range(M+1,len(y)-M+1):
 
 plt.subplot(3,1,1)
 plt.plot(t,signal)
+plt.xlabel('Time [s]')
+plt.ylabel('Amplitude')
 plt.title('signal')
 plt.grid()
 plt.ylim(-2,2)
 
 plt.subplot(3,1,2)
 plt.plot(t,x)
+plt.xlabel('Time [s]')
+plt.ylabel('Amplitude')
 plt.title('signal+noise')
 plt.grid()
 plt.ylim(-2,2)
 
 plt.subplot(3,1,3)
 plt.plot(t,y)
+plt.xlabel('Time [s]')
+plt.ylabel('Amplitude')
 plt.title('estimated')
 plt.grid()
 plt.ylim(-2,2)
 
+plt.tight_layout()
 plt.show()
 
 #print('inputSNR[dB]:'+ str(10*np.log10(np.sum(signal**2)/np.sum(noise**2))))
