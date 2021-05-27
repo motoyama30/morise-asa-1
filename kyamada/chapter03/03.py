@@ -2,17 +2,34 @@
 import numpy as np
 
 # 振幅rと位相θをパラメータとした1Hzの正弦波の生成
-fs = 44100
-r = 1.5
-theta = 0.3
-n = 2
-m = 3
-t = np.arange(fs).reshape((fs, 1))/fs # (1,fs)の縦ベクトル
-x = r*np.cos(2*np.pi*n*t-theta)
-print(np.sum(x*np.cos(2*np.pi*m*t))) #値が違う？？
+def CreateSound(fs,n,r,theta):
+    t = np.arange(fs).reshape((fs, 1))/fs # (1,fs)の縦ベクトル
+    x = r*np.cos(2*np.pi*n*t-theta)
+    return t,x
 
-a = 2/fs*np.sum(x*np.cos(2*np.pi*m*t))
-b = 2/fs*np.sum(x*np.sin(2*np.pi*m*t))
+def EstimateAB(fs,t,x,m):
+    a = 2/fs*np.sum(x*np.cos(2*np.pi*m*t))
+    b = 2/fs*np.sum(x*np.sin(2*np.pi*m*t))
 
-print(f'a : {a}')
-print(f'b : {b}')
+    print(f'a : {a}')
+    print(f'b : {b}')
+
+    # フォーマットを変更する
+    a_f = format(a, '.17f')
+    b_f = format(b, '.17f')
+
+    print(f'a : {a_f}')
+    print(f'b : {b_f}')
+
+if __name__ == '__main__':
+    # 初期値
+    fs = 44100
+    r = 1.5
+    theta = 0.3
+    n = 2
+    m = 3
+
+    t,x = CreateSound(fs,n,r,theta)
+    EstimateAB(fs,t,x,m)
+
+
