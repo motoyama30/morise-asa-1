@@ -1,17 +1,20 @@
 # 直交関数列(orthogonal functions)の確認
 import numpy as np
 
-# 振幅rと位相θをパラメータとした1Hzの正弦波の生成
-def CreateSound(fs,n,r,theta):
-    t = np.arange(fs).reshape((fs, 1))/fs # (1,fs)の縦ベクトル
-    x = r*np.cos(2*np.pi*n*t-theta)
-    return t,x
 
-def EstimateAB(fs,t,x,m):
+def create_sound(fs, n, r, theta):
+    # 振幅rと位相θをパラメータとした1Hzの正弦波の生成
+    t = np.arange(fs).reshape((fs, 1))/fs  # (1,fs)の縦ベクトル
+    x = r*np.cos(2*np.pi*n*t-theta)
+    return t, x
+
+
+def estimate_a_b(fs, t, x, m):
     a = 2/fs*np.sum(x*np.cos(2*np.pi*m*t))
     b = 2/fs*np.sum(x*np.sin(2*np.pi*m*t))
 
-    return a,b
+    return a, b
+
 
 if __name__ == '__main__':
     # 初期値
@@ -21,8 +24,8 @@ if __name__ == '__main__':
     n = 2
     m = 3
 
-    t,x = CreateSound(fs,n,r,theta)
-    a,b = EstimateAB(fs,t,x,m)
+    t, x = create_sound(fs, n, r, theta)
+    a, b = estimate_a_b(fs, t, x, m)
 
     print(f'a : {a}')
     print(f'b : {b}')
@@ -33,5 +36,3 @@ if __name__ == '__main__':
 
     print(f'a : {a_f}')
     print(f'b : {b_f}')
-
-
