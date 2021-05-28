@@ -14,39 +14,41 @@
 **現在検討中です．やりながら今後変わる可能性があります．**
 
 ## 使い方
-1. このレポジトリを clone する
+
+1. このレポジトリを fork する
+2. fork したレポジトリを clone する
    ```
-   $ git clone https://github.com/onolab-tmu/morise-asa.git
+   $ git clone https://github.com/<user_name>/morise-asa.git
    ```
-2. 新しいブランチを作る
+   `<user_name>` の部分は各自のユーザー名に置き換えてください
+3. 新しいブランチを作る
    ブランチ名は `<ユーザー名>/<章>` としてください．
-   例：中嶋が1章のコードを追加するとき → `tnakashima/chapter01`
+   例：中嶋が 1 章のコードを追加するとき → `tnakashima/chapter01`
    ```
    $ git branch <user_name>/chapter<XX>
    ```
-3. コードを書く
+4. コードを書く
    ファイル名は `chapter<章番号>/<問題番号>.py` とし，章番号・問題番号は 1 始まりの 2 桁に揃えてください．
    例：1 章の 1 個目 → `chapter01/01.py`
-4. 新しく書いたコードを git の管理対象に追加する
+5. 新しく書いたコードを git の管理対象に追加する
    ```
    $ git add ./<user_name>/chpaterXX/YYY.py
    ```
-5. 変更を記録する
+6. 変更を記録する
    コミットメッセージは「○ 章を追加」などわかりやすい文章にしてください．
    ```
    $ git commit -m 'your message'
    ```
-6. Remote repository の変更を pull する
+7. Remote repository の変更を pull する
    ```
    $ git pull
    ```
-7. Remote repository に push する
+8. Remote repository に push する
    このとき， `<user_name>/chapter<XX>` は 2. で作成したブランチ名にしてください
    ```
    $ git push origin <user_name>/chapter<XX>
    ```
-8. GitHub 上で pull request を作成する
-   [このリポジトリの pull requests](https://github.com/onolab-tmu/morise-asa/pulls) から新しい pull request を作成してください
+9. GitHub 上で pull request を作成する
 
 ## 注意事項
 
