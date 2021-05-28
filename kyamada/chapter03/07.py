@@ -1,5 +1,6 @@
 # 高速フーリエ変換によるスペクトル解析
 import numpy as np
+
 np.random.seed(0)  # シード値
 
 
@@ -16,7 +17,7 @@ def dft(N, t, x):
 
     # dftでの値の計算
     for i in range(N):
-        c[i] = np.sum(x*np.exp(-1j*2*np.pi*i*t/N))
+        c[i] = np.sum(x * np.exp(-1j * 2 * np.pi * i * t / N))
 
     return c
 
@@ -29,7 +30,7 @@ def fft_t(x):
     return X.T
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     N = 8  # 信号長
     t, x = create_random_signal(N)
 
