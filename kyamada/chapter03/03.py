@@ -11,15 +11,7 @@ def EstimateAB(fs,t,x,m):
     a = 2/fs*np.sum(x*np.cos(2*np.pi*m*t))
     b = 2/fs*np.sum(x*np.sin(2*np.pi*m*t))
 
-    print(f'a : {a}')
-    print(f'b : {b}')
-
-    # フォーマットを変更する
-    a_f = format(a, '.17f')
-    b_f = format(b, '.17f')
-
-    print(f'a : {a_f}')
-    print(f'b : {b_f}')
+    return a,b
 
 if __name__ == '__main__':
     # 初期値
@@ -30,6 +22,16 @@ if __name__ == '__main__':
     m = 3
 
     t,x = CreateSound(fs,n,r,theta)
-    EstimateAB(fs,t,x,m)
+    a,b = EstimateAB(fs,t,x,m)
+
+    print(f'a : {a}')
+    print(f'b : {b}')
+
+    # フォーマットを変更する
+    a_f = format(a, '.17f')
+    b_f = format(b, '.17f')
+
+    print(f'a : {a_f}')
+    print(f'b : {b_f}')
 
 

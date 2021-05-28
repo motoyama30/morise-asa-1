@@ -16,13 +16,18 @@ def EstimateAB(fs,t,x):
     # 振幅と位相の取得
     amplitude = np.sqrt(a**2+b**2)
     phase = np.arctan2(b,a)
-    print(f'amplitude : {amplitude}')
-    print(f'phase : {phase}')
+
+    return amplitude,phase
+
 
 if __name__ == '__main__':
     fs = 44100
     r = 1.5
     theta = 0.3
     t,x = CreateSound(fs,r,theta)
-    EstimateAB(fs,t,x)
+    amplitude,phase = EstimateAB(fs,t,x)
+
+    print(f'amplitude : {amplitude}')
+    print(f'phase : {phase}')
+
 

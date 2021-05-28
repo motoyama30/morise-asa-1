@@ -14,7 +14,7 @@ def EstimateAmplitude(fs,f,t,x,message=None):
     c = np.sum(x*np.exp(-1j*2*np.pi*f*t))/fs
     amplitude = np.abs(c)
 
-    print(f'amplitude (f = {f}Hz): {amplitude}')
+    return amplitude
 
 if __name__ == '__main__':
     fs = 8
@@ -23,4 +23,6 @@ if __name__ == '__main__':
     for f in range(9): # fを0から8まで
         # 0,4,8の時に振幅が0.5になる
         t,x = CreateSound(fs,f,r,theta)
-        EstimateAmplitude(fs,f,t,x)
+        amplitude = EstimateAmplitude(fs,f,t,x)
+
+        print(f'amplitude (f = {f}Hz): {amplitude}')
