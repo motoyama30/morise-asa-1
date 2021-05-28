@@ -1,8 +1,8 @@
 import numpy as np
+np.random.seed(0) # シード値
 
 # ホワイトノイズの作成
 N = np.arange(1000) # 信号長
-np.random.seed(0) # シード値
 x1 = np.random.randn(len(N),1)
 x2 = np.random.randn(len(N),1)
 
