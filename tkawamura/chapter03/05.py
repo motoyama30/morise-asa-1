@@ -12,13 +12,13 @@ x = r1*np.cos(2*np.pi*f1*t - theta1) + r2*np.cos(2*np.pi*f2*t - theta2)
 # 1 [Hz] の正弦波との内積
 k1 = 1
 c1 = np.sum(x*np.exp(-1j*2*np.pi*k1*t))/fs
-k3 = 3
-c3 = np.sum(x*np.exp(-1j*2*np.pi*k3*t))/fs
+k2 = 3
+c2 = np.sum(x*np.exp(-1j*2*np.pi*k2*t))/fs
 
 print("(f={})".format(k1))
 print("r1/2: {}".format(np.abs(c1)))
 print("theta1: {}".format(np.angle(np.conjugate(c1))))
 
-print("(f={})".format(k3))
-print("r3/2: {}".format(np.abs(c3)))
-print("theta3: {}".format(np.angle(np.conjugate(c3))))
+print("(f={})".format(k2))
+print("r2/2: {}".format(np.abs(c2)))
+print("theta2: {}".format(np.angle(np.conjugate(c2))))
