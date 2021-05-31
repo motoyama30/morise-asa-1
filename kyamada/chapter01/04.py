@@ -1,8 +1,8 @@
 import numpy as np
 
-c = complex(3, 4) # 関数を使うとき
+c = complex(3, 4)  # 関数を使うとき
 
-x = 3+4j
+x = 3 + 4j
 r = abs(x)
 
 print(x)
