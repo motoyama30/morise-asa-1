@@ -4,7 +4,7 @@ import numpy as np
 def task3_6(fs):
     # 定義
     r = 0.5
-    t = np.arange(fs-1)/fs
+    t = np.arange(fs)/fs
 
     for f in range(fs):
         x = r*np.cos(2*np.pi*f*t)

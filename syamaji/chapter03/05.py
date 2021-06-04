@@ -4,7 +4,7 @@ import numpy as np
 def task3_5():
     # 定義
     fs = 44100
-    t = np.arange(fs - 1)/fs
+    t = np.arange(fs)/fs
     # 各周期，振幅，位相
     n1 = 1
     r1 = 1.5

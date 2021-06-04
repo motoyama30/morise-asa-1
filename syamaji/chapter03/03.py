@@ -8,7 +8,7 @@ def task3_3():
     theta = 0.3
     n = 2
     m = 3
-    t = np.arange(fs - 1)/fs
+    t = np.arange(fs)/fs
 
     # 観測信号
     x = r*np.cos(2*np.pi*n*t - theta)

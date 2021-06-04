@@ -7,7 +7,7 @@ def task3_2():
     r = 1.5
     f = 2
     L = 1/f
-    t = np.arange(fs*L - 1)/fs
+    t = np.arange(fs*L)/fs
     theta = 0.3
 
     # 観測信号
