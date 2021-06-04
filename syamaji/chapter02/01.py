@@ -5,7 +5,7 @@ import numpy as np
 def task2_1():
     # 定義
     fs = 44100
-    t = np.arange(fs/2-1)/fs
+    t = np.arange(fs/2)/fs
     x = np.sin(2*np.pi*t)
 
     # 区分求積法
