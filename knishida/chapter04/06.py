@@ -7,8 +7,7 @@ fs = 44100
 fft_size = 65536
 x = np.zeros(fft_size)
 x[1] = 1
-w = np.arange(1, fft_size + 1) / fft_size * fs
-# 0割りエラーが出てしまうので1スタートにしました
+w = np.arange(0, fft_size) / fft_size * fs
 
 # calc
 X = np.fft.fft(x, fft_size)
