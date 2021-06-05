@@ -1,0 +1,13 @@
+{
+  "python.pythonPath": "C:\\Users\\hei8m\\.virtualenvs\\hungury_ps-GCE-VbVF\\Scripts\\python.exe",
+  "python.formatting.autopep8Path": "C:\\Users\\hei8m\\AppData\\Local\\Programs\\Python\\Python38\\Scripts\\autopep8",
+  "python.formatting.blackPath": "C:\\Users\\hei8m\\AppData\\Local\\Programs\\Python\\Python38\\Scripts\\black.exe",
+  "python.formatting.flake8Path": "C:\\Users\\hei8m\\AppData\\Local\\Programs\\Python\\Python38\\Scripts\\flake8.exe",
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.lintOnSave": true,
+  "python.linting.flake8Enabled": true,
+  "python.formatting.provider": "autopep8",
+  "editor.formatOnSave": true,
+}
