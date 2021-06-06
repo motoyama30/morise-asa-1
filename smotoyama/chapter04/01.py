@@ -12,7 +12,7 @@ w = np.arange(len(x)) * fs / len(x)
 
 # plot
 plt.plot(w, abs(X))
-plt.xlabel("周波数")
+plt.xlabel("周波数[Hz]")
 plt.ylabel("振幅スペクトル")
 plt.grid()
 plt.xlim(0, 50)
