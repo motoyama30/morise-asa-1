@@ -9,9 +9,9 @@ def create_sound(fs, f):
 
 def estimate_spectral_centroid(t, x, fft_size):
     X = np.fft.fft(x, fft_size)
-    X = abs(X[0 : int(fft_size / 2 - 1)])
-
-    w = np.arange(int(fft_size / 2 - 1)) * fs / fft_size
+    X = abs(X[0 : int(fft_size / 2)])
+    # print("X", X.shape)
+    w = np.arange(int(fft_size / 2)) * fs / fft_size
     spectral_centroid = np.sum(w * X) / np.sum(X)
     print(f"spectral_centroid [Hz]: {spectral_centroid}")
 
