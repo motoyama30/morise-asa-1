@@ -13,6 +13,6 @@ w = np.arange(fft_size).T / fft_size * fs
 phase_delay = -np.unwrap(np.angle(X)) / (2 * np.pi * w)
 plt.plot(w, phase_delay * fs)
 plt.title("Phase Delay")
-plt.xlabel("Frequency")
+plt.xlabel("Frequency [Hz]")
 plt.ylabel("Sample")
 plt.show()
