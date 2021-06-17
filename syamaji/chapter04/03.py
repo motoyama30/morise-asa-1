@@ -1,7 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from numpy.lib.function_base import angle
-import math
 
 
 def task4_3():

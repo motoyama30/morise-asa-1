@@ -1,8 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from numpy.fft import fft2
-from numpy.lib.function_base import angle
-import math
 
 
 def task4_2():
@@ -11,7 +8,7 @@ def task4_2():
     t = np.arange(fs) / fs
     f = 5
     x = np.sin(2 * np.pi * f * t)
-    fft_size = 2 ** math.ceil(np.log2(x.shape[0]))
+    fft_size = 2 ** np.math.ceil(np.log2(x.shape[0]))
 
     X1 = np.fft.fft(x)
     X2 = np.fft.fft(x, fft_size)

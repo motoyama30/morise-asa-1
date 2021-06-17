@@ -1,5 +1,4 @@
 import numpy as np
-import math
 
 
 def task4_9():
@@ -13,7 +12,7 @@ def task4_9():
     t_c = np.sum(t * x ** 2) / fs
     sigma_t1 = np.sum((t - t_c) ** 2 * x ** 2) / fs
 
-    fft_size = 2 ** math.ceil(np.log2(x.shape[0]))
+    fft_size = 2 ** np.math.ceil(np.log2(x.shape[0]))
     X = np.fft.fft(x, fft_size)
     Xd = np.fft.fft(-1j * t * x, fft_size)
     tau_d = (np.real(Xd) * np.imag(X) - np.real(X) * np.imag(Xd)) / np.abs(X) ** 2
