@@ -15,13 +15,3 @@ plt.xlim(0, 50)
 plt.xlabel("Frequency [Hz]")
 plt.ylabel("Amplitude")
 plt.show()
-
-# 01での結果
-# X1 = np.fft.fft(x, axis=0)
-# w = np.arange(len(x)).reshape(len(x), 1)*fs/len(x)
-#
-# plt.plot(w, np.abs(X1))
-# plt.xlim(0, 50)
-# plt.xlabel("Frequency [Hz]")
-# plt.ylabel("Amplitude")
-# plt.show()
