@@ -27,18 +27,18 @@ def task5_8(stft_time, win_func, output_path=None):
     frame_shift = np.round(fs*(stft_time/2))
     number_of_frames = int(np.ceil((x.shape[0])/frame_shift))
     X = np.zeros([int(fft_size//2), number_of_frames])
-    bace_index = np.arange(np.ceil(-win_len//2), np.ceil(win_len//2))
+    bace_index = np.arange(np.ceil(-win_len//2), np.ceil(win_len//2), dtype=int)
 
 
     for i in range(number_of_frames):
         center = np.round(i*frame_shift)
         safe_index = np.zeros_like(bace_index)
         tmp = np.zeros_like(bace_index)
-
-        for j in range(bace_index.shape[0]):
-            safe_index[j] = max(1, min(x.shape[0], bace_index[j]+center))
-            tmp[j] = x[int(safe_index[j])] * win[j]
-
+        
+        bace_index = bace_index +int(center)
+        a = np.minimum(bace_index , x.shape[0])
+        safe_index = np.maximum(np.minimum(bace_index , x.shape[0]), 1)
+        tmp = x[safe_index] * win 
         tmpX = 20*np.log10(np.abs(np.fft.fft(tmp, fft_size)))
         X[:, i] = tmpX[:fft_size//2]
 
@@ -64,5 +64,5 @@ if __name__ == "__main__":
         # for 窓関数
         for win_func in [MyHanning, MyHamming, MyBlackman]:
             # 窓願数とSTFT長で命名
-            output_path = './fig/{}_{}ms'.format(str(win_func.__name__), int(stft_time * 1000))
+            output_path = './chapter05/fig/{}_{}ms'.format(str(win_func.__name__), int(stft_time * 1000))
             task5_8(stft_time, win_func, output_path)
