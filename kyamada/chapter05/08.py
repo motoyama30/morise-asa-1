@@ -52,45 +52,25 @@ def set_stft_param(win_len):
     return fft_size, frame_shift, number_of_frames, X, base_index
 
 
-def plot_chirp_spectr_by_window():
+def time_frequency_analysis(
+    x, fs, win_len, win, fft_size, frame_shift, number_of_frames, X, base_index
+):
 
-    wind_list = [my_hanning(x), my_hamming(x), my_blackman(x)]
-    wind_name = ["Hanning window", "Hamming window", "Blackman window"]
-    wind_index = 0
-    for win in wind_list:
-        wind_len_index = 1
-        for win_len in [np.round(fs * 0.01), np.round(fs * 0.02)]:
-            fft_size, frame_shift, number_of_frames, X, base_index = set_stft_param(
-                win_len
-            )
-            X = time_frequency_analysis(
-                x,
-                fs,
-                win_len,
-                win,
-                fft_size,
-                frame_shift,
-                number_of_frames,
-                X,
-                base_index,
-            )
+    for i in range(number_of_frames):
+        center = int(np.round(i * frame_shift))  # 信号を切り出す中心時刻
+        # safe_index は、0以下の時は、1になる
+        safe_index = np.where(base_index <= 0, 1, base_index)
+        safe_index = np.where(safe_index > len(x), len(x), safe_index + center)
+        # tmp[j]にx[safe_index[j]]の値を代入する
+        tmp = np.zeros(len(safe_index))
 
-            plt.imshow(
-                X,
-                cmap="gray",
-                origin="lower",
-                extent=(0, 1, 0, 4000),
-                vmax=np.max(X),
-                aspect="auto",
-            )
-            plt.subplot(3, wind_index, wind_len_index)
-            plt.title(wind_name[wind_index])
-            plt.xlabel("Time (s)")
-            plt.ylabel("Frequency (Hz)")
-            plt.colorbar()
-            plt.tight_layout()
-            wind_len_index += 1
-        wind_index += 1
+        for j in range(len(safe_index)):
+            tmp[j] = x[int(safe_index[j])]
+        tmp = tmp * win  # 切り出して窓関数をかける
+        tmpX = 20 * np.log10(np.abs(np.fft.fft(tmp, fft_size)))  # fft
+        X[:, i] = tmpX[0 : int(fft_size / 2)]
+
+    return X
 
 
 if __name__ == "__main__":
@@ -125,3 +105,4 @@ if __name__ == "__main__":
     plt.ylabel("Frequency (Hz)")
     plt.colorbar()
     plt.show()
+
