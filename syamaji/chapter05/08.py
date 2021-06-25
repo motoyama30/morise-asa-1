@@ -34,11 +34,9 @@ def task5_8(stft_time, win_func, output_path=None):
         center = np.round(i*frame_shift)
         safe_index = np.zeros_like(bace_index)
         tmp = np.zeros_like(bace_index)
-        
-        bace_index = bace_index +int(center)
-        a = np.minimum(bace_index , x.shape[0])
-        safe_index = np.maximum(np.minimum(bace_index , x.shape[0]), 1)
-        tmp = x[safe_index] * win 
+
+        safe_index = np.maximum(np.minimum(bace_index+int(center), x.shape[0]-1), 0)
+        tmp = x[safe_index] * win
         tmpX = 20*np.log10(np.abs(np.fft.fft(tmp, fft_size)))
         X[:, i] = tmpX[:fft_size//2]
 
@@ -48,6 +46,8 @@ def task5_8(stft_time, win_func, output_path=None):
     plt.figure()
     pl.pcolormesh(x, y, X)
     plt.colorbar()
+    plt.xlabel("Time frame")
+    plt.ylabel("Frequency bin")
 
     if output_path is None:
         pl.show()

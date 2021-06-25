@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy.io.wavfile import write
 
 
 def task5_7():
@@ -11,6 +12,7 @@ def task5_7():
     k = (f2-f1)/T
     t = np.arange(fs*T) / fs
     x = np.sin(2*np.pi*(f1*t+(k/2)*t**2))
+    write('out.wav', fs, np.reshape(x, [1, -1]))
 
     fft_size = 8000
     w = np.arange(fft_size)*fs / fft_size
