@@ -52,28 +52,6 @@ def set_stft_param(win_len):
     return fft_size, frame_shift, number_of_frames, X, base_index
 
 
-def time_frequency_analysis(
-    x, fs, win_len, win, fft_size, frame_shift, number_of_frames, X, base_index
-):
-
-    for i in range(number_of_frames):
-        center = int(np.round(i * frame_shift))  # 信号を切り出す中心時刻
-        # safe_index は、0以下の時は、1になる
-        safe_index = np.where(base_index <= 0, 1, base_index)
-        safe_index = np.where(safe_index > len(x), len(x), safe_index + center)
-        print(safe_index)
-        # tmp[j]にx[safe_index[j]]の値を代入する
-        tmp = np.zeros(len(safe_index))
-
-        for j in range(len(safe_index)):
-            tmp[j] = x[int(safe_index[j])]
-        tmp = tmp * win  # 切り出して窓関数をかける
-        tmpX = 20 * np.log10(np.abs(np.fft.fft(tmp, fft_size)))  # fft
-        X[:, i] = tmpX[0 : int(fft_size / 2)]
-
-    return X
-
-
 def plot_chirp_spectr_by_window():
 
     wind_list = [my_hanning(x), my_hamming(x), my_blackman(x)]
@@ -147,4 +125,3 @@ if __name__ == "__main__":
     plt.ylabel("Frequency (Hz)")
     plt.colorbar()
     plt.show()
-
