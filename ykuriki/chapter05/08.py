@@ -38,18 +38,14 @@ base_index = np.arange(np.ceil(-win_len / 2), np.ceil(win_len / 2), dtype=int)
 
 for i in range(0, number_of_frames):
     center = round(i * frame_shift)
-    safe_index = np.where(
-        np.where(base_index + center < len(x), base_index + center, len(x)) > 1,
-        np.where(base_index + center < len(x), base_index + center, len(x)),
-        1,
-    )
+    safe_index = np.maximum(1, np.minimum(len(x), base_index + center))
     tmp = x[safe_index - 1] * win
     tmpX = 20 * np.log10(abs(np.fft.fft(tmp, fft_size)))
     X[:, i] = tmpX[: fft_size // 2 + 1]
 
 # プロット
 plt.imshow(
-    np.where(X > X.max() - 60, X, X.max() - 60),
+    np.maximum(X, np.max(X) - 60),
     cmap="gray",
     origin="lower",
     extent=[0, 1, 0, 4000],
